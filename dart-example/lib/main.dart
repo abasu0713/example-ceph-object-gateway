@@ -33,6 +33,7 @@ class ListObjectsV2Command extends Command {
     final signer = AWSSigV4Signer(
         credentialsProvider: AWSCredentialsProvider.environment());
     try {
+      // utilizing extension method
       final result = await signer.cephListObjectsV2(
           bucketName: argResults!.option('bucketName') as String,
           prefix: argResults!.option('prefix'),
