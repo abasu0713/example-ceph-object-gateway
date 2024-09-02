@@ -9,16 +9,17 @@ A sample CLI application to demonstrate interaction with AWS S3 compatible Ceph 
 
 ### Locally Testing
 1. [Install Dart](https://dart.dev/get-dart)
-2. Clone this repository and navigate inside
+1. Clone this repository and navigate inside and install dependencies
     ```bash
     git clone 
     cd 
+    dart pub get
     ```
-3. Setup environment variables:
+1. Setup environment variables:
     ```bash
     export CEPH_OBJECT_GATEWAY_HOST="https://<dns-or-private-ip-address>"
     ```
-4. Run the sample script
+1. Run the sample script
     ```bash
     dart run lib/main.dart 
     ```
