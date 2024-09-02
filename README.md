@@ -1,0 +1,1 @@
+# Programmatic Access to AWS S3 compatible Ceph Object Gateway examples
