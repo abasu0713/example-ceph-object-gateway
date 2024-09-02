@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:args/command_runner.dart';
 import 'package:aws_signature_v4/aws_signature_v4.dart';
 import 'package:dart_example/storage_ops.dart';
@@ -35,7 +37,8 @@ class ListObjectsV2Command extends Command {
           bucketName: argResults!.option('bucketName') as String,
           prefix: argResults!.option('prefix'),
           signAll: argResults!.flag('presignAll'));
-      log.info(result);
+      String prettyResult = JsonEncoder.withIndent('  ').convert(result);
+      print(prettyResult);
     } on Exception catch (e) {
       log.severe(e);
       rethrow;
