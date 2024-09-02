@@ -3,9 +3,6 @@ import 'dart:convert';
 import 'package:args/command_runner.dart';
 import 'package:aws_signature_v4/aws_signature_v4.dart';
 import 'package:dart_example/storage_ops.dart';
-import 'package:logging/logging.dart';
-
-final log = Logger('main');
 
 class ListObjectsV2Command extends Command {
   @override
@@ -13,8 +10,6 @@ class ListObjectsV2Command extends Command {
   @override
   final description =
       "List objects in a bucket using the ListObjectsV2 API and optionally sign them as well";
-
-  late final Logger logger;
 
   ListObjectsV2Command() {
     argParser.addOption('bucketName',
@@ -25,7 +20,6 @@ class ListObjectsV2Command extends Command {
         abbr: 'p', help: 'The prefix to filter objects by.');
     argParser.addFlag('presignAll',
         abbr: 's', help: 'Presign all objects.', defaultsTo: false);
-    logger = log;
   }
 
   @override
@@ -41,7 +35,7 @@ class ListObjectsV2Command extends Command {
       String prettyResult = JsonEncoder.withIndent('  ').convert(result);
       print(prettyResult);
     } on Exception catch (e) {
-      log.severe(e);
+      print(e);
       rethrow;
     }
   }
@@ -50,26 +44,15 @@ class ListObjectsV2Command extends Command {
 Future<CommandRunner> buildCommandRunner() async {
   return CommandRunner('dart-ceph-object-gateway',
       'A Dart CLI example application to interact with Ceph Object Gateway.')
-    ..addCommand(ListObjectsV2Command())
-    ..argParser.addFlag('verbose',
-        abbr: 'v',
-        negatable: false,
-        help: 'Show additional command output.',
-        defaultsTo: false, callback: (verbose) {
-      if (verbose) {
-        Logger.root.level = Level.ALL;
-      } else {
-        Logger.root.level = Level.INFO;
-      }
-    });
+    ..addCommand(ListObjectsV2Command());
 }
 
 void main(List<String> arguments) async {
   final runner = await buildCommandRunner();
   try {
     runner.run(arguments);
-  } on FormatException catch (e) {
+  } on Exception catch (e) {
     // Print usage information if an invalid argument was provided.
-    log.severe(e.message);
+    print(e);
   }
 }
