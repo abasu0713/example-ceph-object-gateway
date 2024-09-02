@@ -4,6 +4,8 @@ import 'package:dart_example/constants.dart';
 import 'package:xml/xml.dart';
 
 extension StorageOps on AWSSigV4Signer {
+  // Extension method to list objects in a bucket using the ListObjectsV2 API
+  // and optionally sign them as well
   Future<Map<String, dynamic>> cephListObjectsV2(
       {required String bucketName,
       String? prefix,
