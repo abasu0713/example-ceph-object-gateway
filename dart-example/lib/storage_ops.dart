@@ -17,6 +17,7 @@ extension StorageOps on AWSSigV4Signer {
     try {
       final host = "https://${StorageConstants.cephObjectGatewayHost}";
       final serviceConfiguration = S3ServiceConfiguration();
+      prefix ??= '';
       final listObjectsV2Request = AWSHttpRequest(
           method: AWSHttpMethod.get,
           uri: Uri.parse('$host/$bucketName/?list-type=2&prefix=$prefix'));

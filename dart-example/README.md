@@ -19,7 +19,18 @@ A sample CLI application to demonstrate interaction with AWS S3 compatible Ceph 
     ```bash
     export CEPH_OBJECT_GATEWAY_HOST="https://<dns-or-private-ip-address>"
     ```
-1. Run the sample script
+1. Run the sample script and check it's usage
     ```bash
-    dart run lib/main.dart 
+    dart run lib/main.dart -h
     ```
+
+    Example Usage to list bucket contents under a specific _prefix_:
+    ```bash
+    dart run lib/main.dart listObjectsV2 --bucketName "bucket-test" --prefix "images/public"
+    ```
+
+    Example Usage to list bucket contents under a specific _prefix_ and sign them at the same time for 1 day:
+    ```bash
+    dart run lib/main.dart listObjectsV2 --bucketName "bucket-test" --prefix "images/public" -s
+    ```
+
