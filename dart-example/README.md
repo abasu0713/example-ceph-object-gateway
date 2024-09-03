@@ -28,6 +28,7 @@ A sample CLI application to demonstrate interaction with AWS S3 compatible Ceph 
     ```bash
     dart run lib/main.dart listObjectsV2 --bucketName "bucket-test" --prefix "images/public"
     ```
+    You can exclude prefix to recursively list all contents within the bucket. 
 
     Example Usage to list bucket contents under a specific _prefix_ and sign them at the same time for 1 day:
     ```bash
