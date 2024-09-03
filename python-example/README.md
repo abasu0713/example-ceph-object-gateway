@@ -1,4 +1,4 @@
-# dart-example
+# python-example
 A sample CLI application to demonstrate interaction with AWS S3 compatible Ceph Object Gateway using Dart
 
 # Prerequisite
@@ -9,25 +9,29 @@ A sample CLI application to demonstrate interaction with AWS S3 compatible Ceph 
 # Usage
 
 ### Local Testing
-1. [Install Dart](https://dart.dev/get-dart)
+1. [Install Conda](https://docs.anaconda.com/miniconda/miniconda-install/)
+1. Create and activate Conda environment:
+    ```bash
+    conda create --name ceph-obj-gateway python=3.11 
+    conda activate ceph-obj-gateway
+    ```
 1. Navigate inside and install dependencies
     ```bash
-    cd example-ceph-object-gateway/dart-example
-    dart pub get
+    cd example-ceph-object-gateway/python-example
+    pip install -r requirements.txt
     ```
-1. Run the sample script and check it's usage
+1. Run the sample script and check it's usage:
     ```bash
-    dart run lib/main.dart -h
+    python src/main.py
     ```
 
     Example Usage to list bucket contents under a specific _prefix_:
     ```bash
-    dart run lib/main.dart listObjectsV2 --bucketName "bucket-test" --prefix "images/public"
+    python src/main.py --bucketName "bucket-test" --prefix "images/public"
     ```
     You can exclude prefix to recursively list all contents within the bucket. 
 
     Example Usage to list bucket contents under a specific _prefix_ and sign them at the same time for 1 day:
     ```bash
-    dart run lib/main.dart listObjectsV2 --bucketName "bucket-test" --prefix "images/public" -s
+    python src/main.py --bucketName "bucket-test" --prefix "images/public"
     ```
-
