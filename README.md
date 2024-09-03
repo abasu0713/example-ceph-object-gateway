@@ -1,10 +1,12 @@
 # example-ceph-object-gateway
-This repository contains some sample code to interact with Ceph Object Gateway using AWS SDKs. 
+This repository contains some sample code to interact with Ceph Object Gateway's S3 API using AWS SDKs. 
 
 # Overview
-Only has basic usage demonstrations of:
+This repository only contains code that demonstrates implementation of the following:
 - S3's ListObjectsV2 API
-- Generating Pre-signed URLs for temporary public access for Bucket Objects. 
+- Generating Pre-signed URLs for temporary public access of Bucket Objects. 
+
+> Ceph's SQUID release supports almost all IAM and S3 APIs excepting some minor ACL related APIs which you won't most likely need unless you are doing some advanced IAM federation work. So this crude implementation should serve as a rough guide on how to use Ceph Object Gateway's S3 API as if you were using AWS S3 service itself. 
 
 Languages covered (please check their respective directories):
 1. Dart - `dart-example`
