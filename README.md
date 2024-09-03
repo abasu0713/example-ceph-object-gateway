@@ -26,3 +26,4 @@ Languages covered (please check their respective directories):
     export AWS_SECRET_ACCESS_KEY=<your-secret-access-key>
     ```
     > _Note:_ If you ran AWS CLI Configure and want to test only the Python version then you don't need to export the AWS Credentials as environment variables. These env variables are only required by the dart version. 
+1. Follow repository specific instructions
