@@ -11,13 +11,15 @@ A sample CLI application to demonstrate interaction with AWS S3 compatible Ceph 
 1. [Install Dart](https://dart.dev/get-dart)
 1. Clone this repository and navigate inside and install dependencies
     ```bash
-    git clone 
-    cd 
+    git clone https://github.com/abasu0713/example-ceph-object-gateway.git
+    cd example-ceph-object-gateway/dart-example
     dart pub get
     ```
 1. Setup environment variables:
     ```bash
-    export CEPH_OBJECT_GATEWAY_HOST="https://<dns-or-private-ip-address>"
+    export CEPH_OBJECT_GATEWAY_HOST="https://<host-address>"
+    export AWS_ACCESS_KEY_ID=<your-access-key-id>
+    export AWS_SECRET_ACCESS_KEY=<your-secret-access-key>
     ```
 1. Run the sample script and check it's usage
     ```bash
